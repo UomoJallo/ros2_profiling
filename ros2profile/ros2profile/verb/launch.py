@@ -130,9 +130,10 @@ class LaunchVerb(VerbExtension):
                 return None
 
             pid = event.pid
+            node_name = event.action.node_name[1:]
 
             return launch_ros.actions.Node(
-                   name=f'topnode_{pid}',
+                   name=f'{node_name}_monitor',
                    namespace='',
                    package='topnode',
                    executable='resource_monitor',
